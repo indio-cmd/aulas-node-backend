@@ -32,6 +32,7 @@ app.get("/api/v1/divisao", (req, res) => {
 
     res.send({message: resultado})
 
+
     
 })
 
