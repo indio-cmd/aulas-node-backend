@@ -12,7 +12,7 @@ const resultado = Number(num1) + Number(num2)
 res.status(200).send({message: resultado})
 })
 //subtrair
-app.get("/api/v1subtrair", (req, res) =>{
+app.get("/api/v1/subtrair", (req, res) =>{
 const {num1, num2} = req.query
 const resultado = Number(num1) - Number(num2)
 
@@ -33,7 +33,7 @@ app.get("/api/v1/divisao", (req, res) => {
     res.send({message: resultado})
 
 
-    
+
 })
 
 
