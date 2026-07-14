@@ -20,8 +20,8 @@ const resultado = Number(num1) - Number(num2)
 res.status(200).send({message: resultado})
 })
 //mult
-app.get("/api/v1/mult", (req, res) => {
-    const {num1, num2} = req.query
+app.post("/api/v1/ex2", (req, res) => {
+    const {num1, num2} = req.body
     const resultado = Number(num1) * Number(num2)
 
     res.send({message: resultado})
