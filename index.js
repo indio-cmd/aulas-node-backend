@@ -6,6 +6,7 @@ const app = express()
 app.use(express.json())
  
 
+
 app.post("/api/v1/ex1", (req, res) => {
     const {num1, num2} = req.body
 const resultado = Number(num1) + Number(num2)
