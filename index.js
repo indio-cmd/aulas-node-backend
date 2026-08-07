@@ -1,47 +1,12 @@
 import express from "express"
-import cachorro from "./router/cachorro.js"
-
+import router from "./router/carro.js"
 
 const app = express()
 
 app.use(express.json())
 
-app.use('/api/v1/cachorro', cachorro )
-
-//somar
-// app.post("/api/v1/somar", (req, res) => {
-//     const {num1, num2} = req.body
-// const resultado = Number(num1) + Number(num2)
-
-// res.status(200).send({message: resultado})
-// })
-// //subtrair
-// app.post("/api/v1/subtrair", (req, res) =>{
-// const {num1, num2} = req.body
-// const resultado = Number(num1) - Number(num2)
-
-// res.status(200).send({message: resultado})
-// })
-// //mult
-// app.post("/api/v1/ex2", (req, res) => {
-//     const {num1, num2} = req.body
-//     const resultado = Number(num1) * Number(num2)
-
-//     res.send({message: resultado})
-// })
-// //div
-// app.get("/api/v1/divisao", (req, res) => {
-//     const {num1, num2 } = req.query
-//     const resultado = Number(num1) / Number(num2)
-
-//     res.send({message: resultado})
-
-
-
-// })
-
+app.use("/api/v1", router)
 
 app.listen(3000, () => {
-    //Exbice uma mensagem no console quando o servidor estiver ativo.
-    console.log("servidor escutando na porta 3000")
+    console.log("servidor rodando na porta 3000")
 })
