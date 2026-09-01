@@ -12,7 +12,7 @@ return carros
 }
     async Create(){
 
-     const  {marca, ano} = await carro.Create()
+     const  {marca, ano} = await carro.create()
 
 
      return (marca, ano)

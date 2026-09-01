@@ -9,7 +9,7 @@ app.use(express.json())
 app.use("/api/v1", router)
 
 databate.db
-    .sync({force: false})
+    .sync({force: true})
     .then((_) => {
         app.listen(3000, () => {
             console.log("Servidor rodando na porta 3000")

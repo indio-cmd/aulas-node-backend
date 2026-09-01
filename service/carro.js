@@ -25,13 +25,11 @@ class  SeviceCarro{
     }
     //Função (parametros, parametros, parametros)
  async   Criar(id, marca, ano){
-        
-        
             if (!id || !marca || !ano) {
                 throw new Error ( "favor informar todos os dados" )
             }
 
-            RepositoryCarro.push({ id, marca, ano })
+            await RepositoryCarro.push({ id, marca, ano })
     
             return { id, marca, ano }
         }

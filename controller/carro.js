@@ -30,13 +30,13 @@ class ControllerCarro {
         }
     }
 
-    Criar(req, res) {
+  async  Criar(req, res) {
         //id, marca, ano
         try {
 
             const { id, marca, ano } = req.body
 
-         SeviceCarro.Criar(id, marca, ano)
+        await  SeviceCarro.Criar(id, marca, ano)
 
             res.status(200).send({ menssagem: "Cadastrado com sucesso" })
         } catch (error) {
