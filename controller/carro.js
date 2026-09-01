@@ -4,10 +4,10 @@ import SeviceCarro from "../service/carro.js"
 class ControllerCarro {
 
     // Recebimento e a Saida das info
-    Buscar(req, res) {
+     async Buscar(req, res) {
 
         try {
-            const carros = SeviceCarro.Buscar()
+            const carros = await SeviceCarro.Buscar()
             res.send({ message: carros })
         } catch (error) {
             res.status(500).send({
@@ -15,11 +15,11 @@ class ControllerCarro {
             })
         }
     }
-    Detalhe(req, res) {
+   async Detalhe(req, res) {
         try {
             const id = req.params.id
 
-            const carro = SeviceCarro.Detalhe(id)
+            const carro = await SeviceCarro.Detalhe(id)
 
             res.send({ mensagem: carro })
 
