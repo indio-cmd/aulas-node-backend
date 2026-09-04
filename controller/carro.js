@@ -34,9 +34,9 @@ class ControllerCarro {
         //id, marca, ano
         try {
 
-            const { id, marca, ano } = req.body
+            const {marca, ano } = req.body
 
-        await  SeviceCarro.Criar(id, marca, ano)
+        await  SeviceCarro.Criar(marca, ano)
 
             res.status(200).send({ menssagem: "Cadastrado com sucesso" })
         } catch (error) {
@@ -46,20 +46,26 @@ class ControllerCarro {
         }
     }
 
-    Alterar(req, res) {
-        try {
-        } catch (error) {
-            res.status(500).send({
-                menssage: error.message
-            })
-        }
-    }
+  async Alterar(req, res)  {
+try {
+    const id = Number(req.params.id)
+const {marca, ano} = req.body
 
-    Deletar(req, res) {
-        try {
-            const id = req.body.id
+   
+await SeviceCarro.Alterar(id, marca, ano)
+  
+res.status(201).send({message: "alterado com sucesso"})
 
-            SeviceCarro.Deletar(id)
+
+} catch (error) {
+    res.status(500).send({message: error.message})
+}
+}
+  async  Deletar(req, res) {
+        try {
+            const id = req.params.id
+
+           await SeviceCarro.Deletar(id)
 
             res.send({ messagem: "Deletado" })
 

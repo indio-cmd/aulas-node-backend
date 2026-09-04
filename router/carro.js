@@ -5,13 +5,13 @@ const router = express.Router()
 // buscar todos
 router.get("/buscar", ControllerCarro.Buscar )
 // buscar um
-router.get("/detalhe:id", ControllerCarro.Detalhe )
+router.get("/detalhe/:id", ControllerCarro.Detalhe )
 // criar
 router.post("/criar", ControllerCarro.Criar )
 //alterar
-router.post("/alterar", ControllerCarro.Alterar )
+router.put("/alterar/:id", ControllerCarro.Alterar )
 //deletar
-router.post("/deletar", ControllerCarro.Deletar )
+router.delete("/deletar/:id", ControllerCarro.Deletar )
 
 
 export default router

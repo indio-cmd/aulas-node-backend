@@ -10,19 +10,51 @@ class RepositoryCarro{
 
 return carros   
 }
-    async Create(){
+    async Detalhe(id){
+        const coisas = await carro.findByPk(id)
 
-     const  {marca, ano} = await carro.create()
+        return coisas
+    }
 
 
-     return (marca, ano)
+
+
+    async Create(marca, ano){
+
+     const  coisinhas = await carro.create({marca, ano})
+
+
+     return coisinhas
 
 }
-    async Update(){
+
+    async Update(id, marca, ano){
+        const carrinhoUpdate = await carro.findByPk( id)
+
+if(!carrinhoUpdate){
+    throw new Error("carro nao encontrado")
+}
+
+
+carrinhoUpdate.marca = marca
+carrinhoUpdate.ano = ano
+
+await carrinhoUpdate.save()
+
+        return carrinhoUpdate
 
 }
  
-    async Delete(){
+    async Delete(id){
+        const carroDeletar = await carro.findByPk(id)
+
+if(!carroDeletar){
+    throw new Error("Carro nao encontrado")
+}
+
+    await  carroDeletar.destroy()
+
+    return carroDeletar
 
 }
 

@@ -10,41 +10,55 @@ class  SeviceCarro{
     return RepositoryCarro.Find() 
     }
 
-    Detalhe(id){
-//         if(!id) {
-//             throw new Error("Favor informar o ID")
-//         }
-//             const carro = RepositoryCarro.find(it => it.d === id)
+  async  Detalhe(id){
+        if(!id) {
+            throw new Error("Favor informar o ID")
+        }
+            const carro = await RepositoryCarro.Find(id)
 
-// if(!carro){
-//     throw new Error(`ID ${id} do carro não encontrado`)
-// }
+        if(!carro){
+                 throw new Error(`ID ${id} do carro não encontrado`)
+}
 
-//             return carro
+            return carro
 
     }
     //Função (parametros, parametros, parametros)
- async   Criar(id, marca, ano){
-            if (!id || !marca || !ano) {
+ async   Criar( marca, ano){
+            if ( !marca || !ano) {
                 throw new Error ( "favor informar todos os dados" )
             }
 
-            await RepositoryCarro.push({ id, marca, ano })
+            const carroCriar = await RepositoryCarro.Create( marca, ano)
     
-            return { id, marca, ano }
+            return carroCriar
         }
 
-    Alterar(){
+   async Alterar(id, marca, ano){
 
+ const pedido = await RepositoryCarro.Update(id, marca, ano)
+ 
+    if(!id || !ano || !marca){
+        throw new Error ("parametro invalido")
     }
 
-    Deletar(id){
 
-// if(!id){
-//     throw  new Error("Favor informar o ID")
-// }
-//             RepositoryCarro.splice(it => it.id === id, 1)
-// return id 
+
+
+
+return pedido
+
+}
+
+
+   async Deletar(id){
+
+if(!id){
+    throw  new Error("Favor informar o ID")
+}
+          const carroDeletar = await RepositoryCarro.Delete(id)
+
+return carroDeletar
     }
 }
 export default new SeviceCarro()
