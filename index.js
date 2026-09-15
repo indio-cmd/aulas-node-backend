@@ -1,12 +1,14 @@
 import express from "express"
 import router from "./router/carro.js"
 import databate from "./config/databate.js"
+import usuario from "./router/usuario.js"
 
 const app = express()
 
 app.use(express.json())
 
 app.use("/api/v1", router)
+app.use("/api/v1/usuario", usuario)
 
 databate.db
     .sync({force: true})
