@@ -5,8 +5,8 @@ class ControllerUsuario {
 
     // Recebimento e a Saida das info
      async Buscar(req, res) {
-
         try {
+            console.log(req.session)
             const usuarios = await SeviceUsuario.Buscar()
             res.send({ message: usuarios })
         } catch (error) {
@@ -48,7 +48,7 @@ class ControllerUsuario {
 
   async Alterar(req, res)  {
 try {
-    const id = Number(req.params.id)
+    const id = req.session.id //Sessin, Context
 const {email, senha} = req.body
 
    

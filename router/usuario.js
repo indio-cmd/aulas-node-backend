@@ -11,7 +11,7 @@ router.get("/detalhe/:id", ControllerUsuario.Detalhe )
 // criar
 router.post("/criar", ControllerUsuario.Criar )
 //alterar
-router.put("/alterar/:id", ControllerUsuario.Alterar )
+router.put("/alterar/", authMiddleware,  ControllerUsuario.Alterar )
 //deletar
 router.delete("/deletar/:id", ControllerUsuario.Deletar )
 

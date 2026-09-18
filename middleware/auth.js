@@ -12,8 +12,11 @@ if(!token){
     throw new Error()
 }
 
+
 const decoded = jwt.verify(token, segredo)
 
+
+req.session = decoded
 
 console.log(decoded)
 next()
