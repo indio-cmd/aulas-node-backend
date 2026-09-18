@@ -42,14 +42,9 @@ class  SeviceCarro{
         throw new Error ("parametro invalido")
     }
 
-
-
-
-
 return pedido
 
 }
-
 
    async Deletar(id){
 

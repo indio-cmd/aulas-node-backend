@@ -31,14 +31,21 @@ class  SeviceUsuario{
                 throw new Error ( "favor informar todos os dados" )
             }
 
-            const carroCriar = await RepositoryUsuario.Create( email, senha)
+        const senhaCripto = await bcrypt.hash(senha, 12)
+
+            const carroCriar = await RepositoryUsuario.Create( email, senhaCripto)
     
             return carroCriar
         }
 
    async Alterar(id, email, senha){
+if(!id){
+    throw new Error("Favor informar os dados")
+}
+//ternario
+    const senhaCripto = !senha ?undefined : await bcrypt.hash(senha, 12)
 
- const pedidousuario = await RepositoryUsuario.Update(id, email, senha)
+ const pedidousuario = await RepositoryUsuario.Update(id, email, senhaCripto)
  
     if(!id || !email || !senha){
         throw new Error ("parametro invalido")

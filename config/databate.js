@@ -8,7 +8,7 @@ this.init()
 
 init() {
 this.db = new Sequelize({
-    database: "exemplo",
+    database: "exemplo2",
     host: "localhost",
     username: "root",
     dialect: "mysql",
